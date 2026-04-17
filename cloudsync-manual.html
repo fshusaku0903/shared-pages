@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CloudSync 操作手順書</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1a1a1a;
+      background: #f5f5f5;
+      padding: 16px;
+    }
+
+    header {
+      background: #1a6fc4;
+      color: white;
+      border-radius: 12px;
+      padding: 20px 16px;
+      margin-bottom: 20px;
+    }
+
+    header h1 {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+
+    header p {
+      font-size: 13px;
+      opacity: 0.85;
+    }
+
+    section {
+      background: white;
+      border-radius: 12px;
+      padding: 20px 16px;
+      margin-bottom: 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    }
+
+    h2 {
+      font-size: 15px;
+      font-weight: bold;
+      color: #1a6fc4;
+      border-left: 4px solid #1a6fc4;
+      padding-left: 10px;
+      margin-bottom: 14px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    th {
+      background: #eef4fc;
+      padding: 8px 10px;
+      text-align: left;
+      font-weight: bold;
+      color: #1a6fc4;
+      border-bottom: 2px solid #cde0f7;
+    }
+
+    td {
+      padding: 10px;
+      border-bottom: 1px solid #eee;
+      vertical-align: top;
+    }
+
+    tr:last-child td { border-bottom: none; }
+
+    .badge {
+      display: inline-block;
+      background: #1a6fc4;
+      color: white;
+      border-radius: 4px;
+      padding: 2px 8px;
+      font-size: 12px;
+      font-weight: bold;
+      margin-right: 6px;
+    }
+
+    .flow {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      font-size: 14px;
+    }
+
+    .flow-item {
+      background: #eef4fc;
+      border-radius: 8px;
+      padding: 10px 14px;
+      position: relative;
+    }
+
+    .flow-arrow {
+      text-align: center;
+      color: #999;
+      font-size: 18px;
+      line-height: 1.2;
+      padding: 2px 0;
+    }
+
+    .flow-item .label {
+      font-size: 11px;
+      color: #888;
+      margin-bottom: 2px;
+    }
+
+    .flow-item .status {
+      font-weight: bold;
+      color: #1a6fc4;
+    }
+
+    .flow-item .note {
+      font-size: 12px;
+      color: #555;
+      margin-top: 2px;
+    }
+
+    .principles {
+      counter-reset: principle;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .principles li {
+      counter-increment: principle;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+    }
+
+    .principles li::before {
+      content: counter(principle);
+      background: #1a6fc4;
+      color: white;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+
+    .contact-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
+      font-size: 14px;
+    }
+
+    .contact-item:last-child { border-bottom: none; }
+
+    .contact-label { color: #555; }
+
+    .contact-name {
+      font-weight: bold;
+      color: #1a1a1a;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 12px;
+      color: #aaa;
+      margin-top: 8px;
+      padding-bottom: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>CloudSync 操作手順書</h1>
+    <p>滋賀倉庫スタッフ向け ／ 2026年4月</p>
+  </header>
+
+  <!-- 使う場面 -->
+  <section>
+    <h2>使う場面は4つ</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>場面</th>
+          <th>やること</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="badge">①</span>新しい機材が来たとき</td>
+          <td>RFIDタグを貼る → アプリで紐付け</td>
+        </tr>
+        <tr>
+          <td><span class="badge">②</span>機材を出荷するとき</td>
+          <td>スキャン → 「出荷済み」に変更</td>
+        </tr>
+        <tr>
+          <td><span class="badge">③</span>機材が倉庫に戻ったとき</td>
+          <td>スキャン → 「入庫済み」に変更</td>
+        </tr>
+        <tr>
+          <td><span class="badge">④</span>場所を確認・移動するとき</td>
+          <td>機材一覧から確認 or ステータス更新</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ステータスの流れ -->
+  <section>
+    <h2>機材ステータスの流れ</h2>
+    <div class="flow">
+      <div class="flow-item">
+        <div class="label">倉庫にある状態</div>
+        <div class="status">保管中（出荷可）</div>
+      </div>
+      <div class="flow-arrow">↓ 出荷</div>
+      <div class="flow-item">
+        <div class="label">現場に届けた</div>
+        <div class="status">出荷済み（現場）</div>
+      </div>
+      <div class="flow-arrow">↓ 返却</div>
+      <div class="flow-item">
+        <div class="label">戻ってきた・確認前</div>
+        <div class="status">入庫済み（確認待ち）</div>
+      </div>
+      <div class="flow-arrow">↓ 状態による</div>
+      <div class="flow-item">
+        <div class="label">整備が必要なとき</div>
+        <div class="status">整備待ち → 整備完了 → 保管中（出荷可）</div>
+        <div class="note">問題なければ直接「保管中（出荷可）」へ</div>
+      </div>
+    </div>
+    <p style="margin-top:12px; font-size:12px; color:#888;">※ ステータスは全部で10段階ありますが、まずは上の5つだけ覚えればOKです。</p>
+  </section>
+
+  <!-- 迷ったときの3原則 -->
+  <section>
+    <h2>迷ったときの3原則</h2>
+    <ul class="principles">
+      <li>まず「入庫済み」または「要確認」に入れる。無理に正しいものを探さない</li>
+      <li>分からなければ古澤に連絡（電話 / LINE）</li>
+      <li>止まらず暫定で動く。ステータスは後から直せます</li>
+    </ul>
+  </section>
+
+  <!-- 連絡先 -->
+  <section>
+    <h2>連絡先</h2>
+    <div class="contact-item">
+      <span class="contact-label">操作・ステータスの迷い</span>
+      <span class="contact-name">古澤（電話 / LINE）</span>
+    </div>
+    <div class="contact-item">
+      <span class="contact-label">システムのエラー・不具合</span>
+      <span class="contact-name">古澤 → 佐山さんへ</span>
+    </div>
+    <div class="contact-item">
+      <span class="contact-label">緊急（業務が止まる）</span>
+      <span class="contact-name">古澤に即電話</span>
+    </div>
+  </section>
+
+  <footer>株式会社クールレント ／ CloudSync 操作手順書 v1.0</footer>
+
+</body>
+</html>
