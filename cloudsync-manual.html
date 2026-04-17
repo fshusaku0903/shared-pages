@@ -3,44 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CloudSync 操作手順書</title>
+  <title>CloudSync 4/21 オリエンテーション</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", sans-serif;
-      font-size: 16px;
+      font-size: 15px;
       line-height: 1.7;
       color: #1a1a1a;
-      background: #f5f5f5;
-      padding: 16px;
+      background: #f0f4f8;
+      padding: 12px;
     }
 
     header {
-      background: #1a6fc4;
+      background: linear-gradient(135deg, #1a6fc4, #0e4d9a);
       color: white;
-      border-radius: 12px;
+      border-radius: 14px;
       padding: 20px 16px;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
     }
 
-    header h1 {
-      font-size: 20px;
+    header h1 { font-size: 19px; font-weight: bold; margin-bottom: 4px; }
+    header p { font-size: 12px; opacity: 0.85; }
+
+    /* ナビ */
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+
+    nav a {
+      background: white;
+      border: 1.5px solid #1a6fc4;
+      color: #1a6fc4;
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-size: 12px;
+      text-decoration: none;
       font-weight: bold;
-      margin-bottom: 4px;
-    }
-
-    header p {
-      font-size: 13px;
-      opacity: 0.85;
     }
 
     section {
       background: white;
-      border-radius: 12px;
-      padding: 20px 16px;
-      margin-bottom: 16px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+      border-radius: 14px;
+      padding: 18px 16px;
+      margin-bottom: 14px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.07);
     }
 
     h2 {
@@ -52,15 +63,26 @@
       margin-bottom: 14px;
     }
 
+    h3 {
+      font-size: 14px;
+      font-weight: bold;
+      color: #333;
+      margin: 14px 0 8px;
+      padding: 6px 10px;
+      background: #f0f4f8;
+      border-radius: 6px;
+    }
+
     table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 14px;
+      font-size: 13px;
+      margin-bottom: 8px;
     }
 
     th {
       background: #eef4fc;
-      padding: 8px 10px;
+      padding: 7px 10px;
       text-align: left;
       font-weight: bold;
       color: #1a6fc4;
@@ -68,7 +90,7 @@
     }
 
     td {
-      padding: 10px;
+      padding: 9px 10px;
       border-bottom: 1px solid #eee;
       vertical-align: top;
     }
@@ -80,69 +102,93 @@
       background: #1a6fc4;
       color: white;
       border-radius: 4px;
-      padding: 2px 8px;
-      font-size: 12px;
+      padding: 1px 7px;
+      font-size: 11px;
       font-weight: bold;
-      margin-right: 6px;
+      margin-right: 4px;
+      white-space: nowrap;
+    }
+
+    .badge-orange { background: #e07820; }
+    .badge-green  { background: #2a9d4e; }
+    .badge-red    { background: #c0392b; }
+
+    .step-box {
+      background: #f8f9fa;
+      border: 1px solid #dde;
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin: 10px 0;
+      font-size: 13px;
+    }
+
+    .step-box ol {
+      padding-left: 20px;
+      line-height: 2;
+    }
+
+    .step-box p { margin-bottom: 6px; }
+
+    .tip {
+      background: #fffbe6;
+      border-left: 4px solid #f4c430;
+      border-radius: 0 8px 8px 0;
+      padding: 8px 12px;
+      font-size: 13px;
+      margin: 8px 0;
+    }
+
+    .alert {
+      background: #fff0f0;
+      border-left: 4px solid #c0392b;
+      border-radius: 0 8px 8px 0;
+      padding: 8px 12px;
+      font-size: 13px;
+      margin: 8px 0;
     }
 
     .flow {
       display: flex;
       flex-direction: column;
       gap: 0;
-      font-size: 14px;
+      font-size: 13px;
     }
 
     .flow-item {
       background: #eef4fc;
       border-radius: 8px;
-      padding: 10px 14px;
-      position: relative;
+      padding: 9px 14px;
     }
 
     .flow-arrow {
       text-align: center;
-      color: #999;
-      font-size: 18px;
-      line-height: 1.2;
+      color: #888;
+      font-size: 16px;
       padding: 2px 0;
     }
 
-    .flow-item .label {
-      font-size: 11px;
-      color: #888;
-      margin-bottom: 2px;
-    }
-
-    .flow-item .status {
-      font-weight: bold;
-      color: #1a6fc4;
-    }
-
-    .flow-item .note {
-      font-size: 12px;
-      color: #555;
-      margin-top: 2px;
-    }
+    .flow-item .label { font-size: 11px; color: #888; margin-bottom: 2px; }
+    .flow-item .status { font-weight: bold; color: #1a6fc4; }
+    .flow-item .note { font-size: 11px; color: #555; margin-top: 2px; }
 
     .principles {
-      counter-reset: principle;
       list-style: none;
       display: flex;
       flex-direction: column;
       gap: 10px;
+      counter-reset: p;
     }
 
     .principles li {
-      counter-increment: principle;
+      counter-increment: p;
       display: flex;
       align-items: flex-start;
       gap: 10px;
-      font-size: 14px;
+      font-size: 13px;
     }
 
     .principles li::before {
-      content: counter(principle);
+      content: counter(p);
       background: #1a6fc4;
       color: white;
       width: 24px;
@@ -151,7 +197,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: bold;
       flex-shrink: 0;
     }
@@ -162,121 +208,287 @@
       align-items: center;
       padding: 10px 0;
       border-bottom: 1px solid #eee;
-      font-size: 14px;
+      font-size: 13px;
+      gap: 8px;
     }
 
     .contact-item:last-child { border-bottom: none; }
+    .contact-label { color: #555; flex: 1; }
+    .contact-name { font-weight: bold; color: #1a1a1a; text-align: right; }
 
-    .contact-label { color: #555; }
+    .checklist {
+      list-style: none;
+      font-size: 13px;
+      line-height: 2;
+    }
 
-    .contact-name {
+    .checklist li::before {
+      content: "☐ ";
+      color: #1a6fc4;
       font-weight: bold;
-      color: #1a1a1a;
     }
 
     footer {
       text-align: center;
-      font-size: 12px;
-      color: #aaa;
-      margin-top: 8px;
-      padding-bottom: 16px;
+      font-size: 11px;
+      color: #bbb;
+      padding: 8px 0 16px;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>CloudSync 操作手順書</h1>
-    <p>滋賀倉庫スタッフ向け ／ 2026年4月</p>
-  </header>
+<header>
+  <h1>CloudSync 4/21 オリエンテーション</h1>
+  <p>2026年4月21日（月）11:00〜14:00 ／ 滋賀倉庫</p>
+</header>
 
-  <!-- 使う場面 -->
-  <section>
-    <h2>使う場面は4つ</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>場面</th>
-          <th>やること</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><span class="badge">①</span>新しい機材が来たとき</td>
-          <td>RFIDタグを貼る → アプリで紐付け</td>
-        </tr>
-        <tr>
-          <td><span class="badge">②</span>機材を出荷するとき</td>
-          <td>スキャン → 「出荷済み」に変更</td>
-        </tr>
-        <tr>
-          <td><span class="badge">③</span>機材が倉庫に戻ったとき</td>
-          <td>スキャン → 「入庫済み」に変更</td>
-        </tr>
-        <tr>
-          <td><span class="badge">④</span>場所を確認・移動するとき</td>
-          <td>機材一覧から確認 or ステータス更新</td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
+<!-- ナビ -->
+<nav>
+  <a href="#schedule">スケジュール</a>
+  <a href="#members">参加者</a>
+  <a href="#ops">操作手順</a>
+  <a href="#status">ステータス</a>
+  <a href="#discussion">後半</a>
+  <a href="#principles">困ったとき</a>
+  <a href="#contact">連絡先</a>
+</nav>
 
-  <!-- ステータスの流れ -->
-  <section>
-    <h2>機材ステータスの流れ</h2>
-    <div class="flow">
-      <div class="flow-item">
-        <div class="label">倉庫にある状態</div>
-        <div class="status">保管中（出荷可）</div>
-      </div>
-      <div class="flow-arrow">↓ 出荷</div>
-      <div class="flow-item">
-        <div class="label">現場に届けた</div>
-        <div class="status">出荷済み（現場）</div>
-      </div>
-      <div class="flow-arrow">↓ 返却</div>
-      <div class="flow-item">
-        <div class="label">戻ってきた・確認前</div>
-        <div class="status">入庫済み（確認待ち）</div>
-      </div>
-      <div class="flow-arrow">↓ 状態による</div>
-      <div class="flow-item">
-        <div class="label">整備が必要なとき</div>
-        <div class="status">整備待ち → 整備完了 → 保管中（出荷可）</div>
-        <div class="note">問題なければ直接「保管中（出荷可）」へ</div>
-      </div>
+<!-- スケジュール -->
+<section id="schedule">
+  <h2>当日スケジュール</h2>
+  <table>
+    <thead>
+      <tr><th>時間</th><th>内容</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>11:00〜12:00</strong></td><td>前半：操作研修<br><small style="color:#888">RFID・出荷・入庫・棚卸し</small></td></tr>
+      <tr><td><strong>12:00〜13:00</strong></td><td>昼食</td></tr>
+      <tr><td><strong>13:00〜14:00</strong></td><td>後半：清掃フロー・運用ディスカッション</td></tr>
+    </tbody>
+  </table>
+
+  <h3>冒頭（5分）でこう伝える</h3>
+  <div class="tip">
+    「今日は完成品の説明会ではなく、現場で実際に使う中でどう回すかを一緒に確認する会です。まだ決まっていない部分は "今はこう仮運用する" "これは後で詰める" と線引きして終わります。通常の出荷・入庫・RFID作業で止まらないための最低限を今日固めます。」
+  </div>
+</section>
+
+<!-- 参加者 -->
+<section id="members">
+  <h2>参加者と役割</h2>
+  <table>
+    <thead>
+      <tr><th>人</th><th>目的・注意点</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="badge badge-orange">最重要</span>新家さん</td>
+        <td>操作を中心に覚えてもらう。西村さん・城戸さんへの伝達役になる人</td>
+      </tr>
+      <tr>
+        <td>西口さん</td>
+        <td>倉庫トップ。細かい操作より「なぜ使うか」の背景理解が目的</td>
+      </tr>
+      <tr>
+        <td>横山さん・宮﨑さん</td>
+        <td>せっかくなので操作もマスターしてほしい</td>
+      </tr>
+      <tr>
+        <td style="color:#999">西村さん・城戸さん</td>
+        <td style="color:#999">当日不在。後日新家さんから共有してもらう</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- 操作手順 -->
+<section id="ops">
+  <h2>前半：操作手順（全員1回ずつ）</h2>
+
+  <h3><span class="badge">①</span> RFIDタグ貼り付け＋機材紐付け（15分）</h3>
+  <div class="step-box">
+    <ol>
+      <li>まだRFIDが貼れていない機材を用意する</li>
+      <li>タグをシールで貼る（貼り場所は固定位置を示す）</li>
+      <li>アプリを開く → 機材登録 → タグをスキャン → 紐付け完了</li>
+    </ol>
+  </div>
+  <div class="tip">「タグを貼ったら、その場でアプリでの紐付けまでセットでやってください。貼りっぱなしはNG。」</div>
+  <div class="alert">タンク・マニホールド・Y字管は貼り場所が未決定 → 今回は説明のみ、後日対応</div>
+
+  <h3><span class="badge">②</span> 出荷作業（15分）</h3>
+  <div class="step-box">
+    <ol>
+      <li>アプリを開く</li>
+      <li>案件画面 → 対象タスクを選ぶ</li>
+      <li>機材のRFIDタグをスキャン</li>
+      <li>ステータスを「出荷済み」に変更</li>
+      <li>確認画面でOK → 完了</li>
+    </ol>
+  </div>
+  <div class="tip">最後に <strong>WAC-049（三建設備工業 4/22出荷）</strong>で本番リハーサルを実施する。デモ機材：チラー（WAC-049）＋ホース（備品）の2種類。</div>
+
+  <h3><span class="badge">③</span> 入庫・返却作業（15分）</h3>
+  <div class="step-box">
+    <ol>
+      <li>アプリを開く</li>
+      <li>機材一覧 or 案件画面 → 対象機材をスキャン</li>
+      <li>ステータスを「入庫済み」に変更</li>
+      <li>整備が必要そう → 「整備待ち」に変更<br>問題なし → 「保管中（出荷可）」に変更</li>
+    </ol>
+  </div>
+  <div class="tip">「迷ったら一旦 "入庫済み" にしておけばOKです。後で直せます。」</div>
+
+  <h3><span class="badge">④</span> 棚卸し・場所更新（5分）</h3>
+  <p style="font-size:13px; padding: 4px 0;">機材が今どこにあるかを更新する機能。</p>
+  <div class="tip">佐山さんに機能追加を打診中。間に合えば実機デモ、間に合わなければ説明のみ。「近い将来この操作が追加されます」と伝える。</div>
+
+  <h3>アプリアップデート方法（5分・説明のみ）</h3>
+  <div class="step-box">
+    <p>QRコードをスマホで読む → URLが開く → インストール</p>
+    <p style="color:#888; font-size:12px;">アプリが重いためWi-Fi環境でやること。SIMセットアップは後日オンラインでフォロー。</p>
+  </div>
+</section>
+
+<!-- ステータスフロー -->
+<section id="status">
+  <h2>機材ステータスの流れ</h2>
+  <div class="flow">
+    <div class="flow-item">
+      <div class="label">倉庫にある・出荷できる状態</div>
+      <div class="status">保管中（出荷可）</div>
     </div>
-    <p style="margin-top:12px; font-size:12px; color:#888;">※ ステータスは全部で10段階ありますが、まずは上の5つだけ覚えればOKです。</p>
-  </section>
-
-  <!-- 迷ったときの3原則 -->
-  <section>
-    <h2>迷ったときの3原則</h2>
-    <ul class="principles">
-      <li>まず「入庫済み」または「要確認」に入れる。無理に正しいものを探さない</li>
-      <li>分からなければ古澤に連絡（電話 / LINE）</li>
-      <li>止まらず暫定で動く。ステータスは後から直せます</li>
-    </ul>
-  </section>
-
-  <!-- 連絡先 -->
-  <section>
-    <h2>連絡先</h2>
-    <div class="contact-item">
-      <span class="contact-label">操作・ステータスの迷い</span>
-      <span class="contact-name">古澤（電話 / LINE）</span>
+    <div class="flow-arrow">↓ 出荷</div>
+    <div class="flow-item">
+      <div class="label">現場に届けた</div>
+      <div class="status">出荷済み（現場）</div>
     </div>
-    <div class="contact-item">
-      <span class="contact-label">システムのエラー・不具合</span>
-      <span class="contact-name">古澤 → 佐山さんへ</span>
+    <div class="flow-arrow">↓ 返却</div>
+    <div class="flow-item">
+      <div class="label">戻ってきた・確認前</div>
+      <div class="status">入庫済み（確認待ち）</div>
     </div>
-    <div class="contact-item">
-      <span class="contact-label">緊急（業務が止まる）</span>
-      <span class="contact-name">古澤に即電話</span>
+    <div class="flow-arrow">↓ 状態による</div>
+    <div class="flow-item">
+      <div class="label">整備が必要</div>
+      <div class="status">整備待ち</div>
+      <div class="note">→ 整備完了 → 保管中（出荷可）に戻る</div>
     </div>
-  </section>
+    <div class="flow-arrow">↓ 問題なければ直接</div>
+    <div class="flow-item">
+      <div class="status">保管中（出荷可）</div>
+    </div>
+  </div>
+  <p style="font-size:11px; color:#888; margin-top:10px;">※ ステータスは全部で10段階ありますが、まずはこの5つだけ覚えればOKです。</p>
+</section>
 
-  <footer>株式会社クールレント ／ CloudSync 操作手順書 v1.0</footer>
+<!-- 後半ディスカッション -->
+<section id="discussion">
+  <h2>後半：清掃フロー・運用ディスカッション</h2>
+
+  <h3>進め方の方針</h3>
+  <div class="tip">まず西口さんたちの現状フローをヒアリングすることから始める。「こちらが説明する」より先に「滋賀倉庫でどんな清掃・整備をしているか教えてもらう」姿勢で臨む。</div>
+
+  <h3>ヒアリング（15分）</h3>
+  <ul class="checklist">
+    <li>日常的にどんな清掃・点検をしているか（項目・頻度・誰が担当）</li>
+    <li>入庫したチラーにどんな作業をしているか（順番・時間感覚）</li>
+    <li>困っていること・判断に迷う場面</li>
+  </ul>
+
+  <h3>清掃フロー設計の共有（20分）</h3>
+  <table>
+    <thead>
+      <tr><th>分類</th><th>定義</th><th>承認</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="badge badge-green">簡易清掃</span></td>
+        <td>日常清掃・チェック完了</td>
+        <td>不要</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-orange">簡易メンテ</span></td>
+        <td>プラグ・パッキン補充等、その場で対応できたもの</td>
+        <td>不要</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-red">修理要対応</span></td>
+        <td>その場ではどうにもならない不具合</td>
+        <td>古澤が最終判断</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>入庫時の清掃チェック項目</h3>
+  <ul class="checklist">
+    <li>クレフィン清掃</li>
+    <li>ストレーナー清掃</li>
+    <li>内部清掃（ブライン使用時・極端に汚い場合）</li>
+    <li>マニュアル確認・補充（なければ新しいものを補充）</li>
+    <li>外装清掃（極端に汚い場合のみ）</li>
+    <li>ラッシング緩みチェック</li>
+    <li>プラグ脱落確認・修正</li>
+    <li>パッキン脱落確認・補充</li>
+    <li>RFIDタグ確認（ない・壊れている → 修理要対応）</li>
+  </ul>
+
+  <h3>修理要対応になるケース（例）</h3>
+  <ul class="checklist">
+    <li>フィン破損・亀裂</li>
+    <li>配管のぐらつき・継手不良</li>
+    <li>ストレーナーフィルター紛失</li>
+    <li>お客さん先に部品を忘れてきた</li>
+    <li>パッキン脱落（自分で直せない場合）</li>
+  </ul>
+
+  <h3>クロージング（15分）でまとめる内容</h3>
+  <div class="step-box">
+    <p><strong>✅ 今日決めたこと（確定）</strong></p>
+    <p><strong>🔄 今日は暫定（後で修正あり）</strong></p>
+    <p><strong>📋 持ち帰り・要確認（誰が・いつまでに）</strong></p>
+    <p style="font-size:12px; color:#888; margin-top:8px;">例：棚卸し機能 → 佐山さんへ確認 ／ 清掃フロー実装 → 佐山さんと設計</p>
+  </div>
+
+  <div class="tip">締め：「今日は全部答えを出すのが目標じゃなく、現場で止まらないための最低限を固めるのが目標でした。迷ったときは連絡先を使ってください。1週間後に15分だけ確認の電話をしましょう。」</div>
+</section>
+
+<!-- 困ったとき -->
+<section id="principles">
+  <h2>迷ったときの3原則</h2>
+  <ul class="principles">
+    <li>まず「入庫済み」または「要確認」に入れる。無理に正しいものを探さない</li>
+    <li>分からなければ古澤に連絡（電話 / LINE）。どんな小さなことでもOK</li>
+    <li>止まらず暫定で動く。ステータスは後から直せます</li>
+  </ul>
+</section>
+
+<!-- 連絡先 -->
+<section id="contact">
+  <h2>連絡先</h2>
+  <div class="contact-item">
+    <span class="contact-label">操作・ステータスの迷い</span>
+    <span class="contact-name">古澤（電話 / LINE）</span>
+  </div>
+  <div class="contact-item">
+    <span class="contact-label">システムのエラー・不具合</span>
+    <span class="contact-name">古澤 → 佐山さんへ</span>
+  </div>
+  <div class="contact-item">
+    <span class="contact-label">緊急（業務が止まる）</span>
+    <span class="contact-name">古澤に即電話</span>
+  </div>
+
+  <h3 style="margin-top:14px;">4/21 当日のアフター（翌日〜1週間）</h3>
+  <ul class="checklist">
+    <li>「持ち帰り」リストを佐山さんに共有</li>
+    <li>1週間後フォローアップ電話（新家さん）を設定</li>
+    <li>暫定ルールをこのページに追記して再共有</li>
+  </ul>
+</section>
+
+<footer>株式会社クールレント ／ CloudSync 操作手順書 v2.0（2026-04-18更新）</footer>
 
 </body>
 </html>
