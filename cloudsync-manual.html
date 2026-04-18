@@ -375,14 +375,14 @@
       <li>アプリを開く</li>
       <li>案件画面 → 対象タスクを選ぶ</li>
       <li>機材のRFIDタグをスキャン</li>
-      <li>ステータスを「出荷済み」に変更 → OK</li>
+      <li>ステータスを「稼働中」に変更 → OK</li>
     </ol>
     <p style="font-weight:bold; margin: 12px 0 6px;">入庫・返却の手順</p>
     <ol>
       <li>アプリを開く</li>
       <li>機材一覧 or 案件画面 → 対象機材をスキャン</li>
-      <li>ステータスを「入庫済み」に変更</li>
-      <li>整備が必要そう → 「整備待ち」 ／ 問題なし → 「保管中（出荷可）」</li>
+      <li>ステータスを「インターバル」に変更</li>
+      <li>整備が必要そう → 「故障中」 ／ 問題なし → 「出荷可能」</li>
     </ol>
   </div>
   <div class="memo">
@@ -412,7 +412,7 @@
     <p style="margin-bottom:8px;">実装されるまでの間、<strong>Slack #倉庫作業メモ</strong> に以下のフォーマットで報告してもらう。</p>
     <pre style="background:#eee; border-radius:6px; padding:10px; font-size:11px; line-height:1.8; overflow-x:auto;">【滋賀倉庫 在庫報告】YYYY/MM/DD
 
-■ 保管中（出荷可）
+■ 出荷可能
 
 チラー
 （IDを1行ずつ）
@@ -452,30 +452,30 @@ Y字管　※RFIDタグ未対応・ID管理予定
   <div class="flow">
     <div class="flow-item">
       <div class="label">倉庫にある・出荷できる状態</div>
-      <div class="status">保管中（出荷可）</div>
+      <div class="status">出荷可能</div>
     </div>
     <div class="flow-arrow">↓ 出荷</div>
     <div class="flow-item">
-      <div class="label">現場に届けた</div>
-      <div class="status">出荷済み（現場）</div>
+      <div class="label">現場に届けた・稼働中</div>
+      <div class="status">稼働中</div>
     </div>
     <div class="flow-arrow">↓ 返却</div>
     <div class="flow-item">
-      <div class="label">戻ってきた・確認前</div>
-      <div class="status">入庫済み（確認待ち）</div>
+      <div class="label">戻ってきた・インターバル中</div>
+      <div class="status">インターバル</div>
     </div>
     <div class="flow-arrow">↓ 状態による</div>
     <div class="flow-item">
-      <div class="label">整備が必要</div>
-      <div class="status">整備待ち</div>
-      <div class="note">→ 整備完了 → 保管中（出荷可）に戻る</div>
+      <div class="label">整備が必要・修理対応中</div>
+      <div class="status">故障中</div>
+      <div class="note">→ 整備完了 → 出荷可能 に戻る</div>
     </div>
     <div class="flow-arrow">↓ 問題なければ直接</div>
     <div class="flow-item">
-      <div class="status">保管中（出荷可）</div>
+      <div class="status">出荷可能</div>
     </div>
   </div>
-  <p style="font-size:11px; color:#888; margin-top:10px;">※ ステータスは全部で10段階ありますが、まずはこの5つだけ覚えればOKです。</p>
+  <p style="font-size:11px; color:#888; margin-top:10px;">※ ステータスは全部で7種類ありますが、まずはこの4つだけ覚えればOKです（仮予約・予約確定・退役済み等は古澤が管理）。</p>
 </section>
 
 <!-- 後半ディスカッション -->
@@ -556,7 +556,7 @@ Y字管　※RFIDタグ未対応・ID管理予定
 <section id="principles">
   <h2>迷ったときの3原則</h2>
   <ul class="principles">
-    <li>まず「入庫済み」または「要確認」に入れる。無理に正しいものを探さない</li>
+    <li>迷ったら「インターバル」（返却後）または「故障中」（要修理）に入れる。無理に正しいステータスを探さない</li>
     <li>分からなければ古澤に連絡（電話 / LINE）。どんな小さなことでもOK</li>
     <li>止まらず暫定で動く。ステータスは後から直せます</li>
   </ul>
