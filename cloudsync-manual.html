@@ -228,6 +228,32 @@
       font-weight: bold;
     }
 
+    .page-switch {
+      display: flex;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+
+    .page-switch a {
+      flex: 1;
+      text-align: center;
+      padding: 10px 8px;
+      font-size: 12px;
+      font-weight: bold;
+      text-decoration: none;
+      background: white;
+      color: #888;
+    }
+
+    .page-switch a.active {
+      background: #1a6fc4;
+      color: white;
+    }
+
+    .page-switch a:not(.active):hover { background: #f0f4f8; }
+
     .memo {
       background: #f5f5f5;
       border: 1px dashed #bbb;
@@ -260,6 +286,12 @@
   <h1>CloudSync 4/21 オリエンテーション</h1>
   <p>2026年4月21日（月）11:00〜14:00 ／ 滋賀倉庫</p>
 </header>
+
+<!-- ページ切り替え -->
+<div class="page-switch">
+  <a href="cloudsync-0420.html">4/20（日）準備</a>
+  <a href="cloudsync-manual.html" class="active">4/21（月）当日</a>
+</div>
 
 <!-- ナビ -->
 <nav>

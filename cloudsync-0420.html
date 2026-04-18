@@ -114,6 +114,32 @@
       margin-bottom: 4px;
     }
 
+    .page-switch {
+      display: flex;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+
+    .page-switch a {
+      flex: 1;
+      text-align: center;
+      padding: 10px 8px;
+      font-size: 12px;
+      font-weight: bold;
+      text-decoration: none;
+      background: white;
+      color: #888;
+    }
+
+    .page-switch a.active {
+      background: #2a7a4f;
+      color: white;
+    }
+
+    .page-switch a:not(.active):hover { background: #f0f4f8; }
+
     .placeholder {
       background: #fafafa;
       border: 2px dashed #ddd;
@@ -149,6 +175,12 @@
   <p>2026年4月20日（日）／ 古澤・横山さん・宮﨑さん</p>
 </header>
 
+<!-- ページ切り替え -->
+<div class="page-switch">
+  <a href="cloudsync-0420.html" class="active">4/20（日）準備</a>
+  <a href="cloudsync-manual.html">4/21（月）当日</a>
+</div>
+
 <!-- ナビ（内容が決まったら追加） -->
 <nav>
   <a href="#schedule">スケジュール</a>
@@ -167,9 +199,6 @@
   <div class="placeholder">内容を追記予定</div>
 </section>
 
-<p class="link-to-other">4/21 オリエンテーション当日資料は
-  <a href="cloudsync-manual.html">こちら →</a>
-</p>
 
 <footer>株式会社クールレント ／ CloudSync 4/20準備メモ v0.1（2026-04-18作成）</footer>
 
