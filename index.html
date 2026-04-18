@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CloudSync オリエンテーション</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", sans-serif;
+      background: #f0f4f8;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 16px;
+    }
+
+    h1 {
+      font-size: 20px;
+      font-weight: bold;
+      color: #1a1a1a;
+      text-align: center;
+      margin-bottom: 6px;
+    }
+
+    .subtitle {
+      font-size: 13px;
+      color: #888;
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .cards {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      width: 100%;
+      max-width: 360px;
+    }
+
+    .card {
+      display: block;
+      text-decoration: none;
+      background: white;
+      border-radius: 16px;
+      padding: 20px 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.09);
+      transition: transform 0.1s, box-shadow 0.1s;
+    }
+
+    .card:active {
+      transform: scale(0.98);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    }
+
+    .card-date {
+      font-size: 12px;
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+
+    .card-title {
+      font-size: 17px;
+      font-weight: bold;
+      color: #1a1a1a;
+      margin-bottom: 6px;
+    }
+
+    .card-members {
+      font-size: 12px;
+      color: #888;
+    }
+
+    .card-arrow {
+      float: right;
+      font-size: 20px;
+      color: #ccc;
+      margin-top: -28px;
+    }
+
+    .card-0420 .card-date { color: #2a7a4f; }
+    .card-0420 { border-left: 5px solid #2a7a4f; }
+
+    .card-0421 .card-date { color: #1a6fc4; }
+    .card-0421 { border-left: 5px solid #1a6fc4; }
+
+    footer {
+      margin-top: 32px;
+      font-size: 11px;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>CloudSync オリエンテーション</h1>
+  <p class="subtitle">株式会社クールレント ／ 2026年4月</p>
+
+  <div class="cards">
+    <a href="cloudsync-0420.html" class="card card-0420">
+      <div class="card-date">4月20日（日）</div>
+      <div class="card-title">事前準備</div>
+      <div class="card-members">古澤・横山さん・宮﨑さん</div>
+      <div class="card-arrow">›</div>
+    </a>
+
+    <a href="cloudsync-manual.html" class="card card-0421">
+      <div class="card-date">4月21日（月）</div>
+      <div class="card-title">オリエンテーション当日</div>
+      <div class="card-members">古澤・新家さん・西口さん・横山さん・宮﨑さん</div>
+      <div class="card-arrow">›</div>
+    </a>
+  </div>
+
+  <footer>© 株式会社クールレント</footer>
+
+</body>
+</html>
