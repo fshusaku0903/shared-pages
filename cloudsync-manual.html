@@ -353,6 +353,38 @@
   </table>
 </section>
 
+<!-- ステータスフロー -->
+<section id="status">
+  <h2>機材ステータスの流れ</h2>
+  <div class="flow">
+    <div class="flow-item">
+      <div class="label">倉庫にある・出荷できる状態</div>
+      <div class="status">出荷可能</div>
+    </div>
+    <div class="flow-arrow">↓ 出荷</div>
+    <div class="flow-item">
+      <div class="label">現場に届けた・稼働中</div>
+      <div class="status">稼働中</div>
+    </div>
+    <div class="flow-arrow">↓ 返却</div>
+    <div class="flow-item">
+      <div class="label">戻ってきた・インターバル中</div>
+      <div class="status">インターバル</div>
+    </div>
+    <div class="flow-arrow">↓ 状態による</div>
+    <div class="flow-item">
+      <div class="label">整備が必要・修理対応中</div>
+      <div class="status">故障中</div>
+      <div class="note">→ 整備完了 → 出荷可能 に戻る</div>
+    </div>
+    <div class="flow-arrow">↓ 問題なければ直接</div>
+    <div class="flow-item">
+      <div class="status">出荷可能</div>
+    </div>
+  </div>
+  <p style="font-size:11px; color:#888; margin-top:10px;">※ ステータス名は現在検討中のため、今後変わる可能性があります。名前より「どの状態か」のイメージを大切にしてください。仮予約・予約確定・退役済み等は古澤が管理します。</p>
+</section>
+
 <!-- 操作手順 -->
 <section id="ops">
   <h2>前半：操作手順</h2>
@@ -454,38 +486,6 @@ Y字管　※RFIDタグ未対応・ID管理予定
     <p>QRコードをスマホで読む → URLが開く → インストール</p>
     <p style="color:#888; font-size:12px;">アプリが重いためWi-Fi環境でやること。SIMセットアップは後日オンラインでフォロー。</p>
   </div>
-</section>
-
-<!-- ステータスフロー -->
-<section id="status">
-  <h2>機材ステータスの流れ</h2>
-  <div class="flow">
-    <div class="flow-item">
-      <div class="label">倉庫にある・出荷できる状態</div>
-      <div class="status">出荷可能</div>
-    </div>
-    <div class="flow-arrow">↓ 出荷</div>
-    <div class="flow-item">
-      <div class="label">現場に届けた・稼働中</div>
-      <div class="status">稼働中</div>
-    </div>
-    <div class="flow-arrow">↓ 返却</div>
-    <div class="flow-item">
-      <div class="label">戻ってきた・インターバル中</div>
-      <div class="status">インターバル</div>
-    </div>
-    <div class="flow-arrow">↓ 状態による</div>
-    <div class="flow-item">
-      <div class="label">整備が必要・修理対応中</div>
-      <div class="status">故障中</div>
-      <div class="note">→ 整備完了 → 出荷可能 に戻る</div>
-    </div>
-    <div class="flow-arrow">↓ 問題なければ直接</div>
-    <div class="flow-item">
-      <div class="status">出荷可能</div>
-    </div>
-  </div>
-  <p style="font-size:11px; color:#888; margin-top:10px;">※ ステータス名は現在検討中のため、今後変わる可能性があります。名前より「どの状態か」のイメージを大切にしてください。仮予約・予約確定・退役済み等は古澤が管理します。</p>
 </section>
 
 <!-- 後半ディスカッション -->
